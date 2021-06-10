@@ -6,8 +6,8 @@ export interface Gist {
   description: string;
   created_at: string;
   updated_at: string;
-  truncated: boolean;
   url: string;
   owner: Owner;
   files: GistFile[];
+  forks_url: string;
 }

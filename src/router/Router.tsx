@@ -3,6 +3,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+
 import { DashboardPage } from '../pages/Dashboard/DashboardPage';
 import { GistContentPage } from '../pages/GistContent/GistContentPage';
 import { UserGistsPage } from '../pages/UserGists/UserGistsPage';
