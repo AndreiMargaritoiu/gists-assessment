@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 
 import { DashboardPage } from '../pages/Dashboard/DashboardPage';
-import { ErrorPage } from '../pages/error/ErrorPage';
+import { ErrorPage } from '../pages/Error/ErrorPage';
 import { GistContentPage } from '../pages/GistContent/GistContentPage';
 import { UserGistsPage } from '../pages/UserGists/UserGistsPage';
 

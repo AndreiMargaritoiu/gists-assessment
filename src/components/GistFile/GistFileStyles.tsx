@@ -10,6 +10,7 @@ export const StyledGistFileContainer = styled.div`
   padding: 16px;
   width: 900px;
   align-self: center;
+  margin-bottom: 32px;
 `;
 
 export const StyledGistFileCotent = styled.div`

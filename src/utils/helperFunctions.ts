@@ -1,0 +1,1 @@
+export const onNavigateToProfile = (htmlUrl: string) => window.open(`${htmlUrl}`, "_blank");

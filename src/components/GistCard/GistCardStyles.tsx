@@ -20,7 +20,7 @@ export const StyledGistDescription = styled.label`
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.15px;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   cursor: pointer;
 
   &.no-description {
@@ -33,7 +33,7 @@ export const StyledForksContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 `;
 
 export const StyledForkProfileImage = styled.div<{
@@ -64,6 +64,7 @@ export const StyledGistLanguage = styled.div`
   border-radius: 20px;
   padding: 4px 8px;
   cursor: pointer;
+  margin-right: 4px;
 `;
 
 export const StyledGistCreationDate = styled.label`

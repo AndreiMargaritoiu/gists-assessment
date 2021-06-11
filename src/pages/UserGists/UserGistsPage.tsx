@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { CustomLoader } from '../../components/CustomLoader/CustomLoader';
 
+import { CustomLoader } from '../../components/CustomLoader/CustomLoader';
 import { GistCard } from '../../components/GistCard/GistCard';
 import { Gist } from '../../domain/Gist';
 import { Context } from '../../utils/Context';
+import { onNavigateToProfile } from '../../utils/helperFunctions';
 import { 
 	StyledGoBackLabel, 
 	StyledProfileImage, 
@@ -32,26 +33,35 @@ export const UserGistsPage = () => {
 			const gists: Gist[] = await Context.apiService.getGists(user.username.trim())
 			setGists(gists)
 		}
-		fetchGists().then(() => setRequestLoading(false));
+		fetchGists().finally(() => setRequestLoading(false));
 	},[user])
 
-	const onNavigateToProfile = () => window.open(`${gists[0].owner.html_url}`, "_blank");
 	const onNavigateBack = () => router.push('/');
 
 	return (
 		<StyledUserGistsPageContainer>
 			{!isRequestLoading 
 				? (<>
-					<StyledGoBackLabel onClick={onNavigateBack}>Curious to search another name? GO BACK</StyledGoBackLabel>
+					<StyledGoBackLabel onClick={onNavigateBack}>
+						Curious to search another name? GO BACK
+					</StyledGoBackLabel>
 					{gists && gists.length > 0 ? (
 						<StyledUserGistsListContainer>
 							<StyledUserGistsContainer>
 								{gists.map(item => <GistCard gist={item} />)}
 							</StyledUserGistsContainer>
-							{gists[0] && gists[0].owner && (<StyledUserDetailsContainer onClick={onNavigateToProfile}>
-							<StyledProfileImage imgSrc={gists[0].owner.avatar_url || ''} role="img" />
-							<StyledUsername>{user.username}</StyledUsername>
-						</StyledUserDetailsContainer>)}
+							{gists[0] && gists[0].owner && (
+								<StyledUserDetailsContainer>
+								<StyledProfileImage 
+									onClick={() => onNavigateToProfile(gists[0].owner.html_url)} 
+									imgSrc={gists[0].owner.avatar_url || ''} 
+									role="img" 
+								/>
+								<StyledUsername onClick={() => onNavigateToProfile(gists[0].owner.html_url)}>
+									{user.username}
+								</StyledUsername>
+								</StyledUserDetailsContainer>
+							)}
 					</StyledUserGistsListContainer>) 
 				: (<StyledSearchResult>No results found</StyledSearchResult>)}
 				</>) 

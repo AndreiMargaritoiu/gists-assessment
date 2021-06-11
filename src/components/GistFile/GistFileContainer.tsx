@@ -20,7 +20,7 @@ export const GistFileContainer = (props: GistFileContainerProps) => {
 		<StyledGistFileContainer>
       <StyledGistFileDetails>
         <StyledGistFileName>{gistFile.filename}</StyledGistFileName>
-        <StyledGistFileLanguage>{gistFile.language}</StyledGistFileLanguage>
+        {gistFile.language && <StyledGistFileLanguage>{gistFile.language}</StyledGistFileLanguage>}
       </StyledGistFileDetails>
       <StyledGistFileCotent>{gistFile.content}</StyledGistFileCotent>
 		</StyledGistFileContainer>

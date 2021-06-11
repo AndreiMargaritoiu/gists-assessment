@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { font } from './../../utils/theme';
+import { font } from '../../utils/theme';
 
 export const StyledErrorPageContainer = styled.div`
   display: flex;

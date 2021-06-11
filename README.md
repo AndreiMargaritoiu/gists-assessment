@@ -44,20 +44,20 @@ src/
 ## Why
 
 - TypeScript
-  - optional static typing, reduce the number of bugs, makes the code more readable, better support for object-oriented programming techniques
-  * needs to be compiled, harder to pick up for a beginner
+  - (+) optional static typing, reduce the number of bugs, makes the code more readable, better support for object-oriented programming techniques
+  * (-) needs to be compiled, harder to pick up for a beginner
 - StyledComponents
-  - loads only the reuqired css, no class name bugs, easier management of css code, simple dynamic styling, no globally scoped selectors
-  * slower for the browser to read
+  - (+) loads only the reuqired css, no class name bugs, easier management of css code, simple dynamic styling, no globally scoped selectors
+  * (-) slower for the browser to read
 
 ## Why not
 
 - Redux
-  - global state management, reducing the number of API calls, better code architecture, increased testing capabilities
-  * a lot of boilerplate code
+  - (+) global state management, reducing the number of API calls, better code architecture, increased testing capabilities
+  * (-) a lot of boilerplate code
     -> Conclusion: did not feel the need for adding this kind of complexity to the project since we only have to make some specific requests based on username or gistId
 
-## Imporovements
+## Improvements
 
 - more suitable design to integrated a better user experience
 - improved user interfaces
@@ -65,6 +65,7 @@ src/
 - adding a global page layout to better manage the entire app's design
 - adding unit tests for components
 - adding redux for a better state management
+- add support for smaller devices
 
 ## Available Scripts
 

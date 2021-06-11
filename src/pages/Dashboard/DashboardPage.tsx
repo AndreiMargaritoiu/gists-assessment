@@ -1,6 +1,13 @@
 import React, { ChangeEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { StyledDashboardIntro, StyledDashboardPageContainer, StyledSearchBar, StyledSearchBarWrapper, StyledSearchButton } from './DashboardPageStyles';
+
+import { 
+  StyledDashboardIntro, 
+  StyledDashboardPageContainer, 
+  StyledSearchBar, 
+  StyledSearchBarWrapper, 
+  StyledSearchButton 
+} from './DashboardPageStyles';
 
 export const DashboardPage = () => {
   const inputPlaceholder: string = 'Type in a name';
@@ -14,6 +21,12 @@ export const DashboardPage = () => {
 		setName(event.target.value);
 	}
 
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if(e.key === 'Enter' && name.trim().length > 0){
+      onSubmit();
+   }
+  }
+
   const onSubmit = () => {
     router.push(`/${name.trim()}/gists`)
   }
@@ -24,7 +37,7 @@ export const DashboardPage = () => {
 		  	Interested in seeing someone's gists? 
       </StyledDashboardIntro>
       <StyledSearchBarWrapper>
-        <StyledSearchBar placeholder={inputPlaceholder} onChange={onChange}/>
+        <StyledSearchBar placeholder={inputPlaceholder} onChange={onChange} onKeyDown={onKeyDown} />
         <StyledSearchButton disabled={isSearchDisabled} onClick={onSubmit}>SEARCH</StyledSearchButton>
       </StyledSearchBarWrapper>
 		</StyledDashboardPageContainer>

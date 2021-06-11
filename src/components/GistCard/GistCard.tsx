@@ -49,7 +49,9 @@ export const GistCard = (props: GistCardProps) => {
         {forks.length > 3 ? '+ more' : ''}
       </StyledForksContainer>}
       <StyledBottomCardContainer>
-        {languages.map(item => <StyledGistLanguage>{item}</StyledGistLanguage>)}
+        <div>
+          {languages.length > 0 && languages.map(item => <StyledGistLanguage>{item}</StyledGistLanguage>)}
+        </div>
         <StyledGistCreationDate>
           {moment(gist.created_at).format('DD-MM-YYYY HH:MM:SS')}
         </StyledGistCreationDate>

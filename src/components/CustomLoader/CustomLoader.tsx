@@ -1,6 +1,6 @@
-import React from "react"
-import { StyledCustomLoader } from "./CustomLoaderStyles"
+import React from "react";
 
+import { StyledCustomLoader } from "./CustomLoaderStyles";
 
 export const CustomLoader = () => {
   
