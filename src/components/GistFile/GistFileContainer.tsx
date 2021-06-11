@@ -1,7 +1,13 @@
 import React from 'react';
 
 import { GistFile } from '../../domain/GistFile';
-import { StyledGistFileContainer, StyledGistFileCotent, StyledGistFileDetails, StyledGistFileLanguage, StyledGistFileName } from './GistFileStyles';
+import { 
+  StyledGistFileContainer, 
+  StyledGistFileCotent, 
+  StyledGistFileDetails, 
+  StyledGistFileLanguage, 
+  StyledGistFileName 
+} from './GistFileStyles';
 
 export type GistFileContainerProps = {
 	gistFile: GistFile,
