@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CustomLoader } from '../../components/CustomLoader/CustomLoader';
+import { GistFileContainer } from '../../components/GistFile/GistFileContainer';
 
 import { Gist } from '../../domain/Gist';
+import { GistFile } from '../../domain/GistFile';
 import { Context } from '../../utils/Context';
 import { StyledGistContentPageContainer } from './GistContentPageStyles';
 
@@ -23,13 +25,13 @@ export const GistContentPage = () => {
 		}
 		fetchGist().then(() => setRequestLoading(false));
 	},[gistId])
-  
+
+	const files: GistFile[] = gist ? (gist.files && Object.values(gist.files)) : [];
+
 	return (
 		<StyledGistContentPageContainer>
 			{!isRequestLoading 
-				? (<>
-					gist content
-					{gist && <label>{gist.description}</label>} </>)
+				? files && files.map(item => (<GistFileContainer gistFile={item} />))
 				: (<CustomLoader />)
 			}
 		</StyledGistContentPageContainer>

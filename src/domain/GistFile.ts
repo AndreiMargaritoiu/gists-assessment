@@ -4,4 +4,5 @@ export interface GistFile {
   raw_url: string;
   size: number;
   type: string;
+  content: string;
 }

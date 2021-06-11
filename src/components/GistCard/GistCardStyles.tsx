@@ -22,6 +22,11 @@ export const StyledGistDescription = styled.label`
   letter-spacing: 0.15px;
   margin-bottom: 4px;
   cursor: pointer;
+
+  &.no-description {
+    font-weight: 500;
+    font-style: italic;
+  }
 `;
 
 export const StyledForksContainer = styled.div`

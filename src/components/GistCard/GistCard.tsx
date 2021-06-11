@@ -2,7 +2,15 @@ import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 
 import { Gist } from '../../domain/Gist';
-import { StyledBottomCardContainer, StyledForkProfileImage, StyledForksContainer, StyledGistCardContainer, StyledGistCreationDate, StyledGistDescription, StyledGistLanguage } from './GistCardStyles';
+import { 
+  StyledBottomCardContainer, 
+  StyledForkProfileImage, 
+  StyledForksContainer, 
+  StyledGistCardContainer, 
+  StyledGistCreationDate, 
+  StyledGistDescription, 
+  StyledGistLanguage 
+} from './GistCardStyles';
 import { Fork } from '../../domain/Fork';
 import { Context } from '../../utils/Context';
 import { useHistory } from 'react-router-dom';
@@ -33,8 +41,8 @@ export const GistCard = (props: GistCardProps) => {
 
 	return (
 		<StyledGistCardContainer onClick={onNavigateToGist}>
-      <StyledGistDescription>
-			  {gist.description}
+      <StyledGistDescription className={gist.description ? '' : 'no-description'}>
+			  {gist.description || 'No description provided'}
       </StyledGistDescription>
       {forks && forks.length > 0 && <StyledForksContainer>forked by {forks.length} {forks.length === 1 ? 'user' : 'users'}
         {forks.slice(0, 3).map(item => (<StyledForkProfileImage imgSrc={item.owner.avatar_url || ''} role="img"/>))}
