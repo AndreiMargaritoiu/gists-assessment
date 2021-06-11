@@ -5,6 +5,7 @@ import { Gist } from '../../domain/Gist';
 import { StyledBottomCardContainer, StyledForkProfileImage, StyledForksContainer, StyledGistCardContainer, StyledGistCreationDate, StyledGistDescription, StyledGistLanguage } from './GistCardStyles';
 import { Fork } from '../../domain/Fork';
 import { Context } from '../../utils/Context';
+import { useHistory } from 'react-router-dom';
 
 export type GistCardProps = {
 	gist: Gist,
@@ -13,10 +14,11 @@ export type GistCardProps = {
 export const GistCard = (props: GistCardProps) => {
   const { gist } = props;
   const [forks, setForks] = useState<Fork[]>([]);
+  const router = useHistory();
 
   const languages: string[] = Object.values(gist.files).map(item => item.language);
 
-  // would exceed the API rate limit, maybe a pagination should do the work 
+  // would exceed the API rate limit
 
   // useEffect(() => {
 	// 	const fetchForks = async () => {
@@ -26,8 +28,11 @@ export const GistCard = (props: GistCardProps) => {
 	// 	fetchForks();
 	// },[gist])
 
+  
+	const onNavigateToGist = () => router.push(`/gists/${gist.id}`);
+
 	return (
-		<StyledGistCardContainer>
+		<StyledGistCardContainer onClick={onNavigateToGist}>
       <StyledGistDescription>
 			  {gist.description}
       </StyledGistDescription>

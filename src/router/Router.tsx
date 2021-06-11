@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 
 import { DashboardPage } from '../pages/Dashboard/DashboardPage';
+import { ErrorPage } from '../pages/error/ErrorPage';
 import { GistContentPage } from '../pages/GistContent/GistContentPage';
 import { UserGistsPage } from '../pages/UserGists/UserGistsPage';
 
@@ -21,6 +22,7 @@ export const Router = () => {
         <Route path={Routes.DASHBOARD} exact={true} component={DashboardPage}/>
         <Route path={Routes.USER_GISTS} exact={true} component={UserGistsPage}/>
         <Route path={Routes.GIST_CONTENT} exact={true} component={GistContentPage}/>
+        <Route component={ErrorPage}/>
       </Switch>
     </BrowserRouter>
   )
